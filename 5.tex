@@ -1,0 +1,816 @@
+\chapter{三角方程}
+先看下面的实例。
+
+若$E$是$\angle BAC$的角平分线上的一个定点，已知$\angle BAC=60^{\circ}$（图5.1），过$E$点的动直线$BC$交
+$\angle BAC$的两边于$B$、$C$. 试问当直线$BC$绕点$E$旋转到什么位置时，$AB=2AC$？
+
+\noindent
+\begin{minipage}{.45\textwidth}
+\begin{analyze}
+当直线旋转时（我们可以用旋转角$x$来刻画这个旋转），$\triangle BAC$是个可变图形。欲使$AB=2AC$，应设法分别找出边$AB$、$AC$与变量$x$的函数关系（这本质上是一个解斜三角形的问题），然后用方程的方法解之.
+\end{analyze}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}[scale=.7]
+\tkzDefPoints{0/0/A, 4/0/E, 6/0/F}
+\tkzDefPoint(-35:3.5){C}
+\tkzDefPoint(25:7){B'}
+\tkzInterLL(A,B')(C,E)
+\tkzGetPoint{B}
+\tkzLabelPoints[left](A)
+\tkzLabelPoints[below](C,E)
+\tkzLabelPoints[above](B)
+\draw(B')--(A)--(F);
+\tkzDrawPolygon(A,C,B)
+\node at (2,0)[below]{$m$};
+\tkzMarkAngles[mark=none, size=.8cm](C,A,E F,E,B)
+\tkzMarkAngles[mark=none, size=1cm](E,A,B)
+\tkzMarkAngles[mark=none, size=.6cm](B,E,A)
+\tkzLabelAngle[pos=1.2](F,E,B){$x$}
+\tkzLabelAngle[pos=1.1](B,E,A){$180^{\circ}-x$}
+
+\end{tikzpicture}
+    \captionof{figure}{}
+\end{minipage}
+
+\begin{solution}
+由于$E$是$\angle BAC$的角平分线上的定点，故可用字母$m$表示$AE$的长。容易看出$\triangle ABE$是可解的：$\angle BAE=30^{\circ}$, $\angle B=x-30^{\circ}$, $\angle AEB=180^{\circ}-x$，$AE=m$，由正弦定理，得
+\[\begin{split}
+    \frac{AB}{\sin(180^{\circ}-x)}&=\frac{m}{\sin(x-30^{\circ})}\\
+    AB&=\frac{m\sin x}{\sin (x-30^{\circ})}
+\end{split}\]
+同理，可得：$AC=\frac{m\sin x}{\sin(x+30^{\circ})}$.
+
+欲使$AB=2AC$，应使
+\[2m\sin x\sin (x-30^{\circ})=m\sin x\sin(x+30^{\circ})\]
+显然$m\sin x\ne 0$，上式可简化为
+\[2\sin (x-30^{\circ})=\sin(x+30^{\circ})\]
+\end{solution}
+
+这种三角函数符号中含有未知数的等式称为\textbf{三角方程}，又如
+\[\sin x=\frac{1}{3},\quad \tan^2 x-5\tan x-3=0,\quad 3\cos\frac{x}{2}+\cos x-1=0\]
+\[\frac{1+\tan x}{1-\tan x}=1+\sin2x,\quad a\sin x+b\cos x=c,\quad \sin^{100}x+8\sin^5x-2=0\]
+等都是三角方程。它们来自数学、物理和技术工程。
+
+本章将研究一些简单三角方程的求解问题。
+
+\section{最简三角方程}
+在三角方程中，$\sin x=a$, $\cos x=a$, $\tan x=a$, $\cot x=a$是最简单的（称为\textbf{最简三角方程}），也是最基本的最重要的。其他三角方程的求解，往往是归结为这四种最简三角方程的求解。
+
+
+\subsection{方程$\sin x=a$的解集}
+
+方程的解集自然依赖于常数$a$的取值和对变元$x$的限定范围。对于后者，若不附任何条件，就意味着是在$(-\infty,+\infty)$上求方程的解集（下同）.
+\begin{enumerate}[(1)]
+    \item 当$|a|>1$时，由于任取$x\in\R$，都有$|\sin x|\le 1$
+    
+    $\therefore\quad$ 方程无解，即解集为$\emptyset$.
+    \item 当$|a|\le 1$时，我们先求出方程的特解（图5.2）：
+\[\alpha_1=\arcsin a,\qquad \alpha_2=\pi-\arcsin a\]
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+\begin{scope}
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[below right]{$O$} circle (1.5);
+\draw[very thick](180-45:1.5)node[above left]{$P_2$}--(0,0)--(45:1.5)node[above right]{$P_1$};
+\draw[dashed](180-45:1.5)--(45:1.5);
+\draw[thick, ->](0,0)--node[right]{$a$}(0,.75*1.414)node[above left]{$M$};
+\draw[->](.5,0) arc (0:45:.5)node[right]{$\alpha_1$};
+\draw[->](.35,0) arc (0:135:.35)node[above]{$\alpha_2$};
+\node at (1.5,0)[above right]{$A$};
+\node at (0,1.5)[above right]{$B$};
+\node at (1.5,0)[below right]{$1$};
+\end{scope}
+\begin{scope}[xshift=6cm]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[above right]{$O$} circle (1.5);
+\node at (1.5,0)[below right]{$1$};
+\draw[very thick](-135:1.5)node[below left]{$P_1$}--(0,0)--(-45:1.5)node[below right]{$P_2$};
+\draw[dashed](-135:1.5)--(-45:1.5);
+\draw[thick, ->](0,0)--node[right]{$a$}(0,-.75*1.414)node[below right]{$M$};
+\draw[->](.5,0) arc (0:-45:.5)node[right]{$\alpha_1$};
+\draw[->](.75,0) arc (0:180+45:.75);
+\node at (115:1){$\alpha_2$};
+
+\end{scope}    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+然后，再加上“周期的整数倍”即得到方程的\textbf{通解}：
+\[\begin{split}
+    x_1&=\arcsin a+2k\pi,\\
+    x_2&=(\pi-\arcsin a)+2k\pi,
+\end{split}\quad k\in\Z\]
+$x_1,x_2$的表达式有时合并写成
+\[x=k\pi+(-1)^k\arcsin a,\quad k\in\Z\]
+即方程的解集为
+\begin{equation}
+    \left\{x\mid x=k\pi+(-1)^k\arcsin a,\; k\in\Z\right\}\tag{*}
+\end{equation}
+\end{enumerate}
+
+应注意：(*)是在$|a|\le 1$时的解集，若忘掉$|a|\le 1$这个条件，说$\sin x=a$的解集是(*)，那就不正确.
+
+\subsection{方程$\cos x=a$的解集}
+\begin{enumerate}
+    \item 当$|a|>1$时，$\cos x=a$的解集为$\emptyset$;
+    \item 当$|a|\le 1$时，$\cos x=a$的特解为（图5.3）
+\[\alpha_1=\arccos a,\qquad \alpha_2=-\arccos a\]
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+\begin{scope}
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[below left]{$O$} circle (1.5);
+\draw[very thick](45:1.5)node[above right]{$P_1$}--(0,0)--(-45:1.5)node[below right]{$P_2$};
+\draw[dashed](-45:1.5)--(45:1.5);
+\draw[thick, ->](0,0)--(.75*1.414,0)node[above]{$N$};
+\node at (.75*1.3,0)[below]{$a$};
+\draw[->](.35,0) arc (0:45:.35)node[right]{$\alpha_1$};
+\draw[->](.45,0) arc (0:-45:.45)node[right]{$\alpha_2$};
+\node at (1.5,0)[above right]{$A$};
+\node at (-1.5,0)[above left]{$B$};
+\node at (1.5,0)[below right]{$1$};
+\end{scope}
+\begin{scope}[xshift=6cm]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[below right]{$O$} circle (1.5);
+\node at (1.5,0)[above right]{$A$};
+\node at (1.5,0)[below right]{$1$};
+\draw[very thick](-135:1.5)node[below left]{$P_2$}--(0,0)--(135:1.5)node[above left]{$P_1$};
+\draw[dashed](-135:1.5)--(135:1.5);
+\draw[thick, ->](0,0)--node[below]{$a$}(-.75*1.414,0)node[above]{$N$};
+\draw[->](.5,0) arc (0:135:.5);
+\draw[->](.75,0) arc (0:-135:.75);
+\node at (-66:1){$\alpha_2$};
+\node at (-1.5,0)[above left]{$B$};
+\node at (66:.7){$\alpha_1$};
+\end{scope}    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+
+通解为
+\[\begin{cases}
+    x_1=\arccos a+2k\pi\\
+    x_2=-\arccos a+2k\pi
+\end{cases} \mathop{\Longleftrightarrow}^{\text{合并为}} x=2k\pi\pm \arccos a,\quad k\in\Z\]
+写成解集的形式为
+\[\left\{x\mid x=2k\pi\pm\arccos a,\; k\in\Z\right\}\]
+\end{enumerate}
+
+\subsection{方程$\tan x=a$的解集}
+由于$\tan x$的值域为$(-\infty,+\infty)$，所以对任意$a\in\R$，方程都有解。其特解为（图5.4）
+\[\alpha_1=\arctan a,\qquad \alpha_2=\arctan a+\pi\]
+其通解为
+\[\begin{cases}
+    x_1=\arctan a+2k\pi\\
+    x_2=(\arctan a+\pi)+2k\pi    
+\end{cases}\mathop{\Longleftrightarrow}^{\text{合并为}} x=\arctan a+k\pi,\; k\in\Z  \]
+写成解集的形式为$\{x\mid x=\arctan a+k\pi,\; k\in\Z\}$.
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+\begin{scope}
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[below right]{$O$} circle (1.5);
+\draw(1.5,3)--(1.5,-2);
+\draw[dashed](-120:1.5)node[below left]{$P_2$}--(60:1.5)node[above]{$P_1$}--(60:3)node[right]{$T$};
+\node at (1.5,0)[above right]{$A$};
+\node at (1.5,0)[below right]{$1$};
+\draw[thick,->](1.5,0)--node[right]{$a$}(60:3);
+\draw[->](.5,0) arc (0:180+60:.5)node[above left]{$\alpha_2$};
+\draw[->](.7,0) arc (0:60:.7)node[right]{$\alpha_1$};
+
+\end{scope}
+\begin{scope}[xshift=6cm]
+    \draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+    \draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+    \draw(0,0)node[below left]{$O$} circle (1.5);
+    \draw(1.5,2)--(1.5,-3);
+    \node at (1.5,0)[above right]{$A$};
+    \node at (1.5,0)[below right]{$1$};
+    \draw[dashed](120:1.5)node[above left]{$P_2$}--(-60:1.5)node[below]{$P_1$}--(-60:3)node[right]{$T$};
+    \draw[thick,->](1.5,0)--node[right]{$a$}(-60:3);
+    \draw[->](.5,0) arc (0:120:.5)node[above right]{$\alpha_2$};
+    \draw[->](.7,0) arc (0:-60:.7)node[right]{$\alpha_1$};
+\end{scope}    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\subsection{方程$\cot x=a $的解集}
+
+$\cot x$的值域也是$(-\infty,+\infty)$，所以任意$a\in\R$，方程都有解，其特解为（图5.5）
+\[\alpha_1=\arccot a,\qquad \alpha_2=\arccot a+\pi\]
+其通解为
+\[\begin{cases}
+    x_1=\arccot a+2k\pi\\
+    x_2=(\arccot a+\pi)+2k\pi    
+\end{cases}\mathop{\Longleftrightarrow}^{\text{合并为}} x=\arccot a+k\pi,\; k\in\Z  \]
+写成解集的形式为$\{x\mid x=\arccot a+k\pi,\; k\in\Z\}$.
+
+\begin{figure}[htp]
+    \centering
+\begin{tikzpicture}[>=stealth]
+\begin{scope}
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2)--(0,2.5)node[left]{$y$};
+\draw(0,0)node[below right]{$O$} circle (1.5);
+\draw[thick, ->](0,1.5)node[above right]{$B$}--node[above]{$a$}(1.2*1.5,1.5)node[right]{$G$};
+\draw[dashed](180+40:1.5)node[below left]{$P_2$}--(1.2*1.5,1.5);
+\node at (40:1.5)[right]{$P_1$};
+\node at (1.5,0)[above right]{$A$};
+
+\draw[->](.5,0) arc (0:180+40:.5)node[above left]{$\alpha_2$};
+\draw[->](.7,0) arc (0:40:.7)node[right]{$\alpha_1$};
+
+\end{scope}
+\begin{scope}[xshift=6cm]
+    \draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+    \draw[->](0,-2)--(0,2.5)node[left]{$y$};
+    \draw(0,0)node[above right]{$O$} circle (1.5);
+    \draw[thick, ->](0,1.5)node[above right]{$B$}--node[above]{$a$}(-1.2*1.5,1.5)node[above]{$G$};
+    \draw[dashed](-40:1.5)node[below right]{$P_2$}--(-1.2*1.5,1.5);
+    \node at (180-40:1.5)[left]{$P_1$};
+    \node at (1.5,0)[above right]{$A$};
+    \node at (1.5,0)[below right]{$1$};
+    \draw[->](.5,0) arc (0:270+50:.5);
+    \draw[->](.7,0) arc (0:180-40:.7);
+    \node at (70:1){$\alpha_1$};
+    \node at (-120:.8){$\alpha_2$};
+
+\end{scope}    
+\end{tikzpicture}
+    \caption{}
+\end{figure}
+
+\begin{example}
+    解方程：
+\begin{multicols}{3}
+\begin{enumerate}[(1)]
+    \item $2\sin x+\sqrt{2}=0$
+    \item $2\cos 2x=1$
+    \item $\tan(x+15^{\circ})+1=0$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}
+    \item $2\sin x+\sqrt{2}=0\Longleftrightarrow \sin x=-\frac{\sqrt{2}}{2}$
+\[\begin{split}
+    \therefore\quad x_1&=\arcsin\left(-\frac{\sqrt{2}}{2}\right)+2k\pi=-\frac{\pi}{4}+2k\pi\\
+    x_2&=\pi-\arcsin\left(-\frac{\sqrt{2}}{2}\right)+2k\pi=\frac{5\pi}{4}+2k\pi\\
+\end{split}\qquad (k\in\Z)\]
+写成解集\footnote{求方程解集的过程叫解方程. 为了书写简便，也可以只列出所有的解而不必写成集合形式.}为
+\[\left\{x\mid x=-\frac{\pi}{4}+2k\pi \text{ 或 } x=\frac{5\pi}{4}+_2k\pi,\; k\in\Z\right\}\]
+
+\item $2\cos 2x=1\Longleftrightarrow \cos 2x=\frac{1}{2}$
+
+$\therefore\quad 2x=2k\pi\pm \arccos\frac{1}{2} \quad \Rightarrow\quad x=k\pi\pm\frac{\pi}{6}\quad (k\in\Z) $
+
+写成解集为$\left\{x\mid x=k\pi\pm \frac{\pi}{6},\; k\in\Z\right\}$
+
+\begin{rmk}
+下面的解法是错误的：
+\[2x=\pm \arccos\frac{1}{2},\qquad x=\pm\frac{1}{2} \arccos \frac{1}{2}\]
+$\therefore\quad x=2k\pi\pm \frac{1}{2} \arccos \frac{1}{2}\quad (k\in\Z)$.
+\end{rmk}
+
+
+\item $\tan(x+15^{\circ})+1=0 \Longleftrightarrow \tan (x+15^{\circ})=-1$,
+
+$\therefore\quad (x+15^{\circ})=\arctan(-1)+k\cdot 180^{\circ}=-45^{\circ}+180^{\circ}\cdot k$
+
+$\therefore\quad x=-60^{\circ}+180^{\circ}\cdot k\quad (k\in\Z)$.
+
+写成解集为$\{x\mid x=-60^{\circ}+180^{\circ}\cdot k,\;  k\in\Z\}$。
+
+\begin{rmk}
+    在同一个表达式中应使用相同的单位。
+    
+    如上面的式子不能写成$x+15^{\circ}=-\frac{\pi}{4}+k\pi\; (k\in\Z)$的形式。
+\end{rmk}
+\end{enumerate}
+\end{solution}
+
+
+\begin{example}
+    若$0^{\circ}<x<360^{\circ}$，解方程$\sin(3x-105^{\circ})=-\frac{1}{2}$.
+\end{example}
+
+\begin{solution}
+\[\begin{split}
+\because\quad &(3x_1-105^{\circ})=\arcsin\frac{1}{2}+360^{\circ}\cdot k=30^{\circ}+360^{\circ}\cdot k\quad (k\in\Z)   \\
+&(3x_2-105^{\circ})=180^{\circ}-\arcsin\frac{1}{2}+360^{\circ}\cdot k=150^{\circ}+360^{\circ}\cdot k\quad (k\in\Z)   
+\end{split}\]
+
+$\therefore\quad x_1=45^{\circ}+120\cdot k,\qquad x_2=85^{\circ}+120^{\circ}\cdot k\quad (k\in\Z)$
+
+考虑到$0^{\circ}<x<360^{\circ}$，
+\begin{enumerate}
+    \item 在$x_1$中令$k=0,1,2$，得$45^{\circ},\; 165^{\circ},\; 285^{\circ}$;
+    \item 在$x_2$中令$k=0,1,2$，得$85^{\circ},\; 205^{\circ},\; 325^{\circ}$.
+\end{enumerate}
+
+$\therefore\quad $原方程的解集为$\{45^{\circ},\; 165^{\circ},\; 285^{\circ},\; 85^{\circ},\; 205^{\circ},\; 325^{\circ}\}$.
+\end{solution}
+
+\section*{习题一}
+\begin{center}
+    \bfseries A
+\end{center}
+\begin{enumerate}
+    \item 口答下列方程的解集：
+\begin{multicols}{3}
+\begin{enumerate}[(1)]
+    \item $\sin x=\frac{\sqrt{3}}{2}$
+    \item $\sin x=-\frac{1}{2}$
+    \item $\cos x=\frac{\sqrt{2}}{2}$
+    \item $\cos x=-\frac{1}{2}$
+    \item $\tan x=-\sqrt{3}$
+    \item $\cot x=\frac{1}{3}$
+\end{enumerate}
+\end{multicols}
+    \item 解下列方程：
+  \begin{multicols}{2}
+\begin{enumerate}[(1)]
+    \item $2\sin2x+1=0$
+    \item $\sin\left(\frac{x}{2}+\frac{\pi}{6}\right)=\frac{\sqrt{3}}{2}$
+    \item $2\cos\left(\frac{\pi}{3}+45^{\circ}\right)=1$
+    \item $\tan 2x-\sqrt{3}=0$
+    \item $\frac{1}{2}\cot 2(x+25^{\circ})-2=0$
+    \item $3\tan\frac{x+20^{\circ}}{3}=\sqrt{3}$ 
+    
+$(-1000^{\circ}<x<1000^{\circ})$
+\end{enumerate}
+\end{multicols}
+\end{enumerate}
+
+\section{简单三角方程}
+一些简单的三角方程，可以通过三角函数的恒等变形或代数方法，化归上节研究过的四种最简三角方程，从而获得其解。现举几类，着重说明“化归”的思路和方法，悟出了道理，可见一般。
+
+\subsection{同角同名的三角函数方程}
+\begin{example}
+   解下列方程： 
+\begin{multicols}{2}
+\begin{enumerate}[(1)]
+    \item $2\sin^2 x-5\sin x-3=0$
+    \item $\sin^2 x-\cos^2 x=\cos x$
+    \item $3\cos\frac{x}{2}+\cos x=1$
+    \item $\frac{1+\tan x}{1-\tan x}=1+\sin 2x$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{analyze}
+把新问题化归为已研究过的问题，是数学研究中的通法。对于(1)，实行换元，即令$\sin x=y$，可得到关于$y$的一元二次方程，从而可以解出$y$，这就化归为最简 三角方程的第一种。其余几题，只须稍作三角函数变换，就可以实现化归。
+\end{analyze}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+    \item 令$y=\sin x\; (-1\le y\le 1)$，有$2y^2-5y-3=0$，即$$(y-3)(2y+1)=0\Rightarrow y_1=3,\; y_2=\frac{-1}{2}$$
+
+$\therefore\quad \sin x=3$（无解）；$\sin x=\frac{-1}{2}$ 解之，得
+\[x_1=\frac{-\pi}{6}+2k\pi,\quad x_2=\frac{7\pi}{6}+2k\pi,\; k\in\Z\]
+\item 把$\sin x$化为$\cos x$，得
+\[2\cos^2x+\cos x-1=0\]
+令$\cos x=y\; (-1\le y\le 1)$，有$2y^2+y-2=0$,
+即$$(y+1)(2y-1)=0\Longleftrightarrow y_1=-1,\quad y_2=\frac{1}{2}$$
+\[\begin{split}
+    \therefore\quad \cos x=-1 &\Longleftrightarrow x_1=\pi+2k\pi \; (k\in\Z)\\
+    \cos x=\frac{1}{2}&\Longleftrightarrow x_2=2k\pi \pm \frac{\pi}{3}\; (k\in\Z)
+\end{split}\]
+\item 把$\cos x$写成 $2\cos^2\frac x2-1$, 可得
+$$2\cos ^{2}\frac x2+ 3\cos \frac x2- 2= 0$$
+令$y=\cos\frac{x}{2}\quad (-1\leqslant y\leqslant1)$, 有
+$$2y^{2}+ 3y- 2= 0\Longleftrightarrow y_{1}= - 2,\quad y_{2}= \frac 12$$
+即 $\cos \frac x2= - 2$ (无解),\quad $\cos\frac x2=\frac12$
+
+$\therefore\quad \frac x2= 2k\pi \pm$ $\frac \pi 3\left ( k\in Z\right ) \Longleftrightarrow x= 4k\pi \pm \frac {2\pi }3\left ( k\in Z\right ) $
+
+\item 把$\sin2x$写成$\frac{2\tan x}{1+\tan ^{2}x}$, 有$\frac {1+ \tan x}{1- \tan x}= 1+ \frac {2\tan x}{1+ \tan ^{2}x}$,
+
+令 $y= \tan x$, 有
+\[\begin{split}
+    \frac {1+ y}{1- y}- 1= \frac {2y}{1+ y^{2}}&\Longleftrightarrow \frac {2y}{1- y}- \frac {2y}{1+ y^{2}}= 0\\
+    &\Longleftrightarrow 2y\left(\frac{1}{1-y}-\frac{1}{1+y^{2}}\right)=0\\
+    &\Longleftrightarrow 2y\cdot\frac{y(y+1)}{(1+y^{2})(1-y)}=0\\
+    &\Longleftrightarrow y_{1}= 0,\quad y_{2}= - 1
+\end{split}\]
+即 
+\[\begin{split}
+    \tan x= 0&\Longleftrightarrow x_1= k\pi\quad ( k\in \Z) \\
+    \tan x= -1&\Longleftrightarrow x_{2}= - \frac \pi 4+ k\pi\quad ( k\in \Z) 
+\end{split}\]
+\end{enumerate}
+\end{solution}
+
+\begin{remark}
+    此例的特点和化归方法可以简捷地概括为“同角同名（包括可化为同角同名函数的方程）——换元就行”。此例中，每小题都列出了所有的解，而未写成解集的形式。
+\end{remark}
+
+\subsection{两同名函数相等的方程}
+
+这类方程的一般形式为
+\begin{align}
+    \sin f(x)&=\sin g(x) \tag{1}\\
+    \cos f(x)&=\cos g(x) \tag{2}\\
+    \tan f(x)&=\tan g(x) \tag{3}\\
+    \cot f(x)&=\cot g(x) \tag{4}
+\end{align}
+
+对于(1)，可把$g(x)$看作是$f(x)$的特解（图5.6），有
+\[\begin{split}
+ f(x)&=g(x)+2k\pi\; (k\in\Z)\longrightarrow \text{解出}x_1\\
+f(x)&=\pi-g(x)+2k\pi\; (k\in\Z)\longrightarrow \text{解出}x_2
+\end{split}\]
+则方程(1)的解集为$\{x\mid x=x_1\text{ 或 }x=x_2\}$;
+
+\noindent
+\begin{minipage}{.45\textwidth}
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$} ;   
+\draw[->](0,-2)--(0,2.5)node[left]{$y$} ;   
+\draw(0,0)node[below right]{$O$} circle (1.5);
+\draw[very thick](135:1.5)node[above left]{$\pi-g(x)$}--(0,0)--(45:1.5)node[above right]{$g(x)$};
+\draw[dashed](135:1.5)--(45:1.5);
+\draw[->](.5,0) arc (0:45:.5);
+\draw[->](.35,0) arc (0:135:.35);
+\node at (1.5,0)[below right]{$A$};
+\end{tikzpicture}    
+\captionof{figure}{}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+\begin{tikzpicture}[>=stealth]
+    \draw[->](-2.5,0)--(2.5,0)node[below]{$x$} ;   
+\draw[->](0,-2)--(0,2.5)node[left]{$y$} ;   
+\draw(0,0)node[below left]{$O$} circle (1.5);
+\draw[very thick](-45:1.5)node[below right]{$-g(x)$}--(0,0)--(45:1.5)node[above right]{$g(x)$};
+\draw[dashed](-45:1.5)--(45:1.5);
+\draw[->](.5,0) arc (0:45:.5);
+\draw[->](.35,0) arc (0:-45:.35);
+\end{tikzpicture}    
+\captionof{figure}{}
+\end{minipage}
+
+对于(2)，仍然把$g(x)$看作是$f(x)$的特解（图5.7），有
+\[ f(x)=2k\pi\pm g(x)\; (k\in\Z)\longrightarrow \text{由此解出}x_1,x_2\]
+则方程(2)的解集为$\{x\mid x=x_1\text{ 或 }x=x_2\}$;
+
+同样，对于(3)有$f(x)=g(x)+k\pi\; (k\in\Z)\longrightarrow \text{由此解出}x$；
+
+对于(4)有$f(x)=g(x)+k\pi\; (k\in\Z)\longrightarrow \text{由此解出}x$.
+
+\begin{example}
+解方程：
+\begin{multicols}{2}
+\begin{enumerate}[(1)]
+    \item $\tan 4x=\tan 3x$
+    \item $\sin4x+\sin2x=0$
+\end{enumerate}
+\end{multicols}
+\end{example}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+    \item 由$\tan 4x=\tan 3x$得：$4x+3x+k\pi\; (k\in\Z)$
+
+$\therefore\quad x=k\pi\; (k\in\Z)$
+\item 由题可得：$\sin 4x=\sin(-2x)$
+
+$\therefore\quad 4x=(-2x)+2k\pi\; (k\in\Z)$，或$4x=\pi-(-2x)+2k\pi\; (k\in\Z)$，有
+\[\begin{split}
+    6x=2k\pi,&\qquad 2x=\pi+2k\pi\\
+x_1=\frac{k\pi}{3}\; (k\in\Z) &\qquad x_2=\frac{\pi}{2}+k\pi \; (k\in\Z)
+\end{split}\]
+
+$\therefore\quad $原方程的解集为$\left\{x\mid x=\frac{k\pi}{3}\text{ 或 }x=\frac{\pi}{2}+k\pi,\; k\in\Z\right\}$.
+ \end{enumerate}   
+\end{solution}
+
+\section*{习题二}
+\begin{center}
+    \bfseries A
+\end{center}
+
+解下列方程：
+\begin{enumerate}
+    \item $2\sin^{2}x+3\sin x+1=0$
+    \item $4\sin^{2}x+(2\sqrt{3}-2)\cos x-(4-\sqrt{3})=0$
+\begin{multicols}{2}
+    \item $\sec^{2}x=1+\tan x$
+    \item $\cos2\theta-\cos3\theta=0$
+    \item $\sin3x+\sin4x=0$
+    \item $\cot x+\cot3x=0$
+    \item $\cos2x+\sin3x=0$
+    \item $\sin x=2\sin\left(\frac{\pi}{3}-x\right)$    
+\end{multicols}
+\end{enumerate}
+
+\subsection{左边化积（分解因式化积或和差化积）右边方程}
+
+从代数上我们知道，方程
+$F(x)=f_1(x)\cdot f_2(x)=0$
+在函数的定义域$Q$上［不妨把$Q$也称为方程$F(x)=0$的定义域］，若$f_1(x)=0$和$f_2(x)=0$的解集分别是$A$与$B$，那么$F(x)
+=0$的解集就是$A\cup B$，即
+\[F(x)=0,\; x\in Q \Longleftrightarrow f_1(x)=0,\; x\in Q\text{\;与\;}f_2(x)=0,\; x\in Q\]
+
+这里应该特别注意方程$f_1(x)=0$，$f_2(x)=0$是在$Q$上求解，如果忽略了$x\in Q$这个前提，就可能导致错误。
+
+
+
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{example}
+    
+\end{example}
+
+\begin{solution}
+    
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
