@@ -1,0 +1,244 @@
+\documentclass[b5paper, openany]{ctexbook}
+\usepackage{zref-abspage}
+\usepackage[margin=2.5cm]{geometry}
+
+
+\usepackage{pifont}
+\usepackage[perpage,symbol*]{footmisc}
+\DefineFNsymbols{circled}{{\ding{192}}{\ding{193}}{\ding{194}}
+{\ding{195}}{\ding{196}}{\ding{197}}{\ding{198}}{\ding{199}}{\ding{200}}{\ding{201}}}
+\setfnsymbol{circled}
+
+
+
+\usepackage{amsmath,amsfonts,mathrsfs,amssymb}
+\usepackage{graphicx}
+
+\usepackage[font=bf,labelfont=bf,labelsep=quad]{caption}
+
+\usepackage{tikz}
+
+
+\usepackage{ntheorem}
+\theoremseparator{\;}
+
+
+
+\usepackage{blkarray}
+\usepackage{bm}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries} 
+\theorembodyfont{\normalfont}
+
+
+\usepackage[framemethod=tikz]{mdframed}
+
+
+\newtheorem{example}{\bf 例}[chapter]
+\newenvironment{solution}{\noindent {\bf 解：}}{}
+\newenvironment{analyze}{\noindent {\bf 分析：}}{}
+\newenvironment{rmk}{ {\bf 注意：}}{}
+\newenvironment{note}{ {\bf 说明：}}{}
+\newenvironment{remark}{ {\bf 评述：}}{}
+
+\renewcommand{\emptyset}{\varnothing}
+
+\renewcommand{\proofname}{\bf 证明：}
+\newenvironment{proof}{{\noindent \bf 证明：}}{}%{\hfill $\square$\par}
+
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\Pr}{\mathbb{P}}
+
+\newcommand{\dif}{\,{\rm d}}
+\newcommand{\Var}{{\rm Var}}
+\newcommand{\Cov}{{\rm Cov}}
+\newcommand{\x}{\times}
+\renewcommand{\Longrightarrow}{\;\Rightarrow\;}
+\newcommand{\map}[3]{#1:\; #2\mapsto #3}
+\newcommand{\arccot}{{\rm arccot\,}}
+
+
+ \usepackage{tcolorbox}
+ \tcbuselibrary{breakable}
+ \tcbuselibrary{most}
+
+
+
+\newtcolorbox{ex}[1][]
+  {colback = white, colframe = cyan!75!black, fonttitle = \bfseries,
+    colbacktitle = cyan!85!black, enhanced,
+    attach boxed title to top center={yshift=-2mm},breakable, 
+    title=练习, #1}
+
+\newtcolorbox{blk}[1][]
+  {colback = white, colframe = magenta!75!black, fonttitle = \bfseries,
+    colbacktitle = magenta!85!black, enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
+    title=思考题, #1}
+
+\newtcolorbox{thm}[2][]
+  {colback = white, colframe = magenta!75!black, fonttitle = \bfseries,
+    colbacktitle = magenta!85!black, enhanced,
+    attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
+    title=#2, #1}
+
+% \newtcolorbox{note}[1][]
+%   {colback = white, colframe = blue!75!black, fonttitle = \bfseries,
+%     colbacktitle = blue!85!black, enhanced,
+%     attach boxed title to top left={xshift=5mm, yshift=-2mm},breakable, 
+%     title=说明, #1}
+
+
+
+\setcounter{tocdepth}{1}
+
+\setcounter{secnumdepth}{2}
+
+
+
+% \ctexset {
+% section = {
+% 	name = {第,节},
+%  	number = \chinese{section}},
+% subsection = {
+% 	name = {,、\hspace{-1em}},
+% 	number = \chinese{subsection}
+% },
+% subsubsection = {
+% 	name = {（,）\hspace{-1em}},
+% 	number = \chinese{subsubsection},
+% }
+% }
+
+
+
+\renewcommand{\contentsname}{目~~录}
+
+\newcommand{\poly}{\polynomial[reciprocal]}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+\usepackage{mathtools}
+
+\setlength{\abovecaptionskip}{0.cm}
+\setlength{\belowcaptionskip}{-0.cm}
+
+\usetikzlibrary{decorations.pathmorphing, patterns}
+\usetikzlibrary{calc, patterns, decorations.markings}
+\usetikzlibrary{positioning, snakes, hobby}
+
+\usepackage{lscape}
+
+\usepackage{yhmath}
+\usepackage{longdivision}
+\usepackage{polynom}
+\usepackage{polynomial}
+\usepackage{cancel}
+
+\renewcommand{\frac}{\dfrac}
+\newcommand{\oc}{$^{\circ}{\rm C}$}
+\newcommand{\blank}{\underline{\qquad}}
+
+\usepackage{multicol}
+\usepackage{cases}
+% \usepackage{enumitem}
+\usepackage{ulem}
+\usepackage{enumerate}
+
+\DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
+\DeclareMathAccent{\widearc}{\mathord}{ugmL}{"F3}
+
+\usepackage{tkz-euclide}
+\newcommand{\VEC}{\overrightarrow}
+\usetikzlibrary{decorations.pathmorphing}
+
+
+\begin{document}
+
+\begin{tikzpicture}[>=stealth]
+    \draw[->](-1.5,0)--(1.5,0)node[below]{$x$};
+    \draw[->](0,-2.25)--(0,2.5)node[left]{$y$};
+\draw[domain=-pi/2:pi/2, smooth, very thick]plot({sin(\x r)},\x);
+\draw[dashed](-1,0)node[above]{$-1$}--(-1,-pi/2)--(0,-pi/2)node[right]{$-\frac{\pi}{2}$};
+\draw[dashed](1,0)node[below]{$1$}--(1,pi/2)--(0,pi/2)node[left]{$-\frac{\pi}{2}$};
+\node [below right]{$O$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[>=stealth]
+  \draw[->](-1.5,0)--(1.5,0)node[below]{$x$};
+  \draw[->](0,-.5)--(0,4)node[left]{$y$};
+\draw[domain=0:pi, smooth, very thick]plot({cos(\x r)},\x);
+\draw[dashed](-1,0)node[below]{$-1$}--(-1,pi)--(0,pi)node[right]{$\pi$};
+\node at (1,0)[below]{$1$};
+\node [below left]{$O$};
+\node at (0,pi/2)[above right]{$\frac{\pi}{2}$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[>=stealth]
+  \draw[->](-3,0)--(3,0)node[below]{$x$};
+  \draw[->](0,-2)--(0,2)node[left]{$y$};
+\draw[domain=-1.25:1.25, smooth, very thick]plot({tan(\x r)},\x);
+\draw[dashed](-3,pi/2)--(3,pi/2);
+\draw[dashed](-3,-pi/2)--(3,-pi/2);
+
+\node [below right]{$O$};
+\node at (0,-pi/2)[above right]{$-\frac{\pi}{2}$};
+\node at (0,pi/2)[below left]{$\frac{\pi}{2}$};
+\end{tikzpicture}
+
+\begin{tikzpicture}[>=stealth]
+  \draw[->](-3,0)--(3,0)node[below]{$x$};
+  \draw[->](0,-.5)--(0,4)node[left]{$y$};
+\draw[domain=.35:2.8, smooth, very thick]plot({1/tan(\x r)},\x);
+\draw[dashed](-3,pi/2)--(3,pi/2);
+\draw[dashed](-3,pi)--(3,pi);
+
+\node [below left]{$O$};
+\node at (0,pi/2)[below left]{$\frac{\pi}{2}$};
+\end{tikzpicture}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+\noindent
+\begin{minipage}{.45\textwidth}
+  \centering
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+\draw(0,0)node [below left]{$O$}circle(1.5);
+
+
+
+\end{tikzpicture}
+\captionof{figure}{}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}
+  \centering
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+\draw(0,0)node [below left]{$O$}circle(1.5);
+
+
+
+\end{tikzpicture}
+\captionof{figure}{}
+\end{minipage}
