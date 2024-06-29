@@ -193,7 +193,39 @@
 \backmatter
 
 
-% \input{fig_tikz.tex}
 
 
 \end{document}
+
+
+
+
+
+
+
+\noindent
+\begin{minipage}{.45\textwidth}
+  \centering
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+\draw(0,0)node [below left]{$O$}circle(1.5);
+
+
+
+\end{tikzpicture}
+\captionof{figure}{}
+\end{minipage}
+\hfill
+\begin{minipage}{.45\textwidth}
+  \centering
+\begin{tikzpicture}[>=stealth]
+\draw[->](-2.5,0)--(2.5,0)node[below]{$x$};
+\draw[->](0,-2.5)--(0,2.5)node[left]{$y$};
+\draw(0,0)node [below left]{$O$}circle(1.5);
+
+
+
+\end{tikzpicture}
+\captionof{figure}{}
+\end{minipage}

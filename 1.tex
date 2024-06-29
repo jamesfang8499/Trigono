@@ -1,3 +1,61 @@
+
+\begin{landscape}
+\begin{tikzpicture}[>=stealth]
+  
+\node(H) at (0,0)[right, rectangle, draw]{积化和差与和差化积};
+\node(G) at (0,1.5)[right, rectangle, draw]{万能公式};
+\node(F) at (0,3)[right, rectangle, draw]{倍角公式};
+\node(E) at (0,4.5)[right, rectangle, draw]{半角公式};
+\draw[->, very thick ](F)--(G);
+\draw[->, very thick](F)--(E);
+
+\node(A) at (0,8)[draw, right, align=center, rectangle, text width=3cm]{角的度量\\(角度制与弧度制)};
+\node(B) at (0,6.5)[draw, right, align=center, rectangle, text width=3cm]{角的概念的推广};
+\draw[->, very thick](A)--(B);
+
+\node (C) at (4.5,7)[draw, right, align=center, rectangle, text width=2.7cm]{任意角\\三角函数的定义\\(第一章)};
+\node (D) at (8,7)[draw, right, align=center, rectangle, text width=2cm]{三角函数线\\及三角函数\\的某些性质};
+\draw[->, very thick](C)--(D);
+
+\node (I) at (4.5,4.5)[draw, right, align=center, rectangle, text width=2.7cm]{同角三角函数\\的基本公式};
+\node (J) at (8,4.5)[draw, right, align=center, rectangle, text width=2cm]{诱导公式};
+
+\draw[->, very thick](C)--(I);
+\draw[->, very thick](D)--(J);
+\draw[->, very thick](I)--(J);
+
+\node (K) at (3,2.5)[draw, right, align=center, rectangle, text width=5cm]{和(差)的正弦、余弦、正切\\(第二章)};
+
+\node (L) at (4,0)[draw, right, align=center, rectangle, text width=4cm]{$a\sin\alpha+b\cos\alpha=\sqrt{a^2+b^2}\sin(\alpha+\beta)$};
+
+\draw[->, very thick](K)--(L);
+\draw[->, very thick](K)--(F);
+\draw[->, very thick](K)--(H);
+
+\draw[->, very thick](I)--(K);
+\draw[->, very thick](J)--(K);
+
+
+\node (O) at (12,-.5)[draw, right, align=center, rectangle, text width=2.5cm]{三角方程\\(第五章)};
+\node (N) at (12,3)[draw, right, align=center, rectangle, text width=2.5cm]{反三角函数\\(第四章)};
+\node (M) at (12,7)[draw, right, align=center, rectangle, text width=2.5cm]{三角函数的性质和图象\\(第三章)};
+\draw[->, very thick](D)--(M);
+\draw[->, very thick](M)--(N);
+\draw[->, very thick](N)--(O);
+
+\draw[dashed](-0.5,6) rectangle (3.5,9);
+\draw[dashed](-0.5,-1) rectangle (11,5.5);
+\draw[dashed](4,5.75) rectangle (10.5 ,8.25);
+\draw[->, very thick](11,1)--(O);
+\draw[->, very thick](11,2.5)--(N);
+\draw[->, very thick](11,4.5)--(M);
+\draw[->, very thick](3.5,7)--(C);
+\draw[->, very thick](4.15,5.75)--+(0,-2.6);
+
+\end{tikzpicture}
+\end{landscape}
+
+
 \chapter{三角函数}
 在初中，我们学习过三角函数的初步知识，重点研究的是用三角函数的定义解三角形（包括解直角三角形和解斜三角形）.
 
