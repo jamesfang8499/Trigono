@@ -311,7 +311,7 @@ $(\alpha\pm\beta)$的任何一种角函数值是否都能用上述方法求得�
 \draw(A)--node[right]{$a\sin\alpha$}(C);
 \draw(B)--node[right]{$b\sin\beta$}(C);
 \tkzMarkAngle[mark=none, size=.7cm](C,O,A)
-\tkzMarkAngle[mark=none, arc=ll, size=.8cm](B,O,C)
+\tkzMarkAngle[mark=none, arc=ll, size=.8](B,O,C)
 \tkzLabelAngle(C,O,A){$\alpha$}
 \tkzLabelAngle(B,O,C){$\beta$}
 
@@ -2606,12 +2606,11 @@ $a^{2}=b\left(b+c\right)$,
 \begin{figure}[htp]
     \centering
 \begin{tikzpicture}
-\tkzDefPoints{0/0/A,4/0/B, 1.5/2/C}
+\tkzDefPoints{0/0/A, 4/0/B, 1.5/2/C}
 \tkzDrawPolygon[thick](A,B,C)
 \tkzLabelPoint[right](B){$B$}
 \tkzLabelPoint[left](A){$A$}
 \tkzLabelPoint[above](C){$C$}
-\tkzDrawCircle[in](A,B,C)
 \tkzDefTriangleCenter[in](A,B,C)
 \tkzGetPoint{O}
 \tkzLabelPoint[above left](O){$O$}
@@ -2620,6 +2619,7 @@ $a^{2}=b\left(b+c\right)$,
 \tkzGetPoint{e}
 \draw[dashed](O)--node[right]{$r$}(e);
 \node at (2,0)[below]{$c$};
+\tkzDrawCircle[thick](O,e)
 \end{tikzpicture}
     \caption*{（第18题）}
 \end{figure}
