@@ -496,10 +496,12 @@ $(0+k\pi,\pi+k\pi),\; k\in\Z$.
 
 \begin{example}
     比大小：
-\begin{enumerate}[(1)]
+\begin{multicols}{2}
+    \begin{enumerate}[(1)]
     \item $\sin\frac{23\pi}{5}$ 与 $\sin\left(\frac{-23\pi}{7}\right)$
     \item $\cot\frac{91\pi}{10}$ 与 $\cot\left(-\frac{67\pi}{8}\right)$
 \end{enumerate}
+\end{multicols}
 \end{example}
 
 \begin{analyze}
@@ -990,7 +992,7 @@ $\therefore\quad $题设不真，从而$\sin x$的最小正周期为$2\pi$.
     $$\sin(2x+2T)-\sin2x=2\cos(2x+T)\sin T=0$$
 而$\cos(2x+T)\not\equiv 0$，要使上式对一切$x\in\R$成立，应使$\sin T=0$，这只要取$T=\pi$即可.
 
-$\therefore\quad f_3(x)=\sin 2x$是周期 函数（周期 是$2\pi$）.
+$\therefore\quad f_3(x)=\sin 2x$是周期 函数（周期 是$\pi$）.
 \end{enumerate}
 \end{solution}
 
@@ -2419,7 +2421,7 @@ $\therefore\quad T=\frac{\pi}{2}$，值域为$\R$.
 
 \section{本章小结}
 
-\subsection{知识结构分析}
+\subsection*{知识结构分析}
 本章以三角函数的定义和三角函数线为依据，全面研究了四个三角函数的性质和图象。
 
 三角函数的图象如图3.34，结合图象可以进一步认识三角函数的性质.
@@ -2531,14 +2533,14 @@ $\therefore\quad T=\frac{\pi}{2}$，值域为$\R$.
 
 
 
-\subsection{几点说明}
+\subsection*{几点说明}
 \begin{enumerate}
     \item 定义域是自变量$x$的取值范围，应特别注意$\tan x$, $\cot x$的无定义的点（间断点）。
     \item 值域是函数值的取值范围。弦函数的值域是$[-1,1]$．应该理解：$-1$是它们的最小值，1是它们的最大值，函数能取到$[-1,1]$中的任何值。切函数的值域是$(-\infty,+\infty)$，因而，它们无最小值也无最大值，它们能取到任何实数值。
     \item 表中列出的周期，指的都是最小正周期。今后无需说明，求函数的周期都是求最小正周期（如果最小正周期存在的话）。若要判断某函数是否是周期函数，根本的是使用定义.
     
     要结合三角函数，正确理解“周期函数”的定义和本质.会用“周期”的概念简化函数性质的研究。
-    \item 函数的奇偶性，是其定义域上的整体性质，这一点必须清楚［如$y=\cos x\; (x\ge 0)$就不是偶函数］。当然，判断一个函数是否是奇（偶）函数，最根本的是使用奇（偶）函数的定义.
+    \item 函数的奇偶性，是其定义域上的整体性质，这一点必须清楚［如$y=\cos x$\; $(x\ge 0)$就不是偶函数］。当然，判断一个函数是否是奇（偶）函数，最根本的是使用奇（偶）函数的定义.
     \item 函数的单调性，是对其定义域上的子区间而言的。应特别注意，虽然在$\left(-\frac{\pi}{2}+2k\pi,\; \frac{\pi}{2}+2k\pi\right)$或$\left(\frac{\pi}{2}+2k\pi,\; \frac{3\pi}{2}+2k\pi\right)$，其中$k\in\Z$上$\tan x$都是增函数，但不能说它在其定义域是增函数。
     \item  对于函数$y=A\sin(\omega x+\varphi)$，其中$A\ne 0$，应会讨论它的各种性质，会用五点法画它的简图。知道它的图象可由$y=\sin x$的图象，经过怎样的几何变换得出来。
     \item 对于$\sin x$、 $\cos x$、 $\tan x$、$\cot x$，都要会用“五点法”画简图.
@@ -2547,7 +2549,7 @@ $\therefore\quad T=\frac{\pi}{2}$，值域为$\R$.
 
 
 
-\subsection{综合运用举例}
+\subsection*{综合运用举例}
 
 \begin{example}
     求下列函数的周期和值域：
@@ -2573,7 +2575,7 @@ $\therefore\quad T=\frac{\pi}{2}$，值域为$\R$.
         y=\frac {1+ \cos 2x}2- 3\cdot \frac 12 \sin 2x &=\frac{1}{2}+\frac{1}{2}\left(\cos2x-3\sin2x\right)\\
     &=\frac{1}{2}+\frac{\sqrt{10}}{2}\left(\frac{1}{\sqrt{10}}\cos 2x-\frac{3}{\sqrt{10}}\sin 2x\right)
     \\
-    &=\frac 12+ \frac {\sqrt {10}}2- ( \sin \varphi \cos 2x- \cos \varphi \sin 2x)\\
+    &=\frac 12+ \frac {\sqrt {10}}2( \sin \varphi \cos 2x- \cos \varphi \sin 2x)\\
     &=\frac{1}{2}+\frac{\sqrt{10}}{2}\sin(\varphi-2x)=\frac{1}{2}-\frac{\sqrt{10}}{2}\sin(2x-\varphi)
     \end{split}\]
 其中：$\sin\varphi=\frac{1}{\sqrt{10}},\quad \cos\varphi=\frac{3}{\sqrt{10}}$
